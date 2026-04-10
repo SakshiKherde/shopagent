@@ -1,0 +1,14 @@
+# Live demo (Claude — what runs in production)
+anthropic>=0.89.0
+
+# Google ADK + Neo4j Agent Memory (the launch integration story)
+neo4j-agent-memory[google-adk]>=0.1.0
+
+# Backend
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+neo4j==6.1.0
+python-dotenv>=1.0.0
+sse-starlette>=2.1.0
+pydantic>=2.7.0
+httpx>=0.27.0
