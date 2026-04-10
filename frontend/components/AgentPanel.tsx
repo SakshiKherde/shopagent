@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Send, Loader2, CheckCircle2, XCircle, Zap, Sparkles, ShieldOff } from "lucide-react"
 import { ChatMessage } from "@/lib/types"
-import { MemoryChip } from "./MemoryChip"
-import { GraphPathChip } from "./GraphPathChip"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface AgentPanelProps {
@@ -179,26 +177,6 @@ export function AgentPanel({ side, conversationId, onStatsUpdate, onElapsedTick 
                 </div>
               </div>
 
-              {isRight && msg.role === "assistant" && msg.content && (
-                <div className="flex flex-col gap-1.5 pl-2">
-                  {msg.factsRecalled && msg.factsRecalled.length > 0 && (
-                    <div className="flex flex-wrap gap-1">
-                      {msg.factsRecalled.map((fact, i) => <MemoryChip key={i} text={fact} delay={i * 80} />)}
-                    </div>
-                  )}
-                  {msg.graphPaths && msg.graphPaths.length > 0 && (
-                    <div className="flex flex-col gap-1">
-                      {msg.graphPaths.slice(0, 2).map((path, i) => <GraphPathChip key={i} path={path} delay={i * 100 + 200} />)}
-                    </div>
-                  )}
-                  {msg.confidence !== undefined && msg.confidence > 0 && (
-                    <div className="inline-flex items-center gap-1.5 text-[11px] text-teal-600 font-medium pl-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                      {Math.round(msg.confidence * 100)}% confidence
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
           ))}
         </div>
